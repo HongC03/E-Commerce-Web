@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.jpeg';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
@@ -15,7 +15,7 @@ const Nav = () => {
 			<div className='nav-center'>
 				<div className='nav-header'>
 					<Link to='/'>
-						<img src={logo} alt='comfy sloth' />
+						<img src={logo} alt='footable' />
 					</Link>
 					<button type='button' className='nav-toggle' onClick={openSidebar}>
 						<FaBars />
@@ -53,8 +53,8 @@ const NavContainer = styled.nav`
 		align-items: center;
 		justify-content: space-between;
 		img {
-			width: 175px;
-			margin-left: -15px;
+			margin-left: 0px;
+			margin-bottom: 0px;
 		}
 	}
 	.nav-toggle {
@@ -85,7 +85,7 @@ const NavContainer = styled.nav`
 			display: flex;
 			justify-content: center;
 			li {
-				margin: 0 0.5rem;
+				margin: 0 3rem;
 			}
 			a {
 				color: var(--clr-grey-3);

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import reducer from '../reducers/products_reducer';
-import { products_url as url } from '../utils/constants';
+import { products_url } from '../utils/constants';
 import {
 	SIDEBAR_OPEN,
 	SIDEBAR_CLOSE,
@@ -23,19 +23,20 @@ export const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	const openSidebar = () => {
-		dispatch({
-			type: SIDEBAR_OPEN,
-		});
+		dispatch({ type: SIDEBAR_OPEN });
 	};
 
 	const closeSidebar = () => {
-		dispatch({
-			type: SIDEBAR_CLOSE,
-		});
+		dispatch({ type: SIDEBAR_CLOSE });
+	};
+
+	const fetchProducts = async (products_url) => {
+		const response = await axios.get(products_url);
+		console.log(response);
 	};
 
 	useEffect(() => {
-		openSidebar();
+		fetchProducts(products_url);
 	}, []);
 
 	return (
