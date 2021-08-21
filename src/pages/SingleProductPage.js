@@ -5,6 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 import { single_product_url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
+import { VscCheck, VscClose } from "react-icons/vsc";
 import {
 	Loading,
 	Error,
@@ -56,13 +57,14 @@ const SingleProductPage = () => {
 	const {
 		name,
 		price,
-		description,
 		stock,
+		releaseDate,
 		stars,
 		reviews,
-		id: sku,
+		department,
 		company,
 		images,
+		freeshipping
 } = fields
 
 	return (
@@ -78,18 +80,25 @@ const SingleProductPage = () => {
 						<h2>{name}</h2>
 						<Stars stars={stars} reviews={reviews} />
 						<h5 className='price'> {formatPrice(price)}</h5>
-						<p className='desc'> {description}</p>
+						<p className='info'>
+							<span className='desc'>Date First Available : </span>
+							<span className="date">{releaseDate}</span>
+						</p>
 						<p className='info'>
 							<span>Available : </span>
 							{stock > 0 ? 'In stock' : 'out of stock'}
 						</p>
 						<p className='info'>
-							<span>SKU : </span>
-							{sku}
+							<span>Department : </span>
+							{department}
 						</p>
 						<p className='info'>
 							<span>Brand : </span>
 							{company}
+						</p>
+						<p className='info'>
+							<span>Freeshipping : </span>
+							<span className='icon'>{freeshipping ? <VscCheck /> : <VscClose />}</span>
 						</p>
 						<hr />
 						{stock > 0 && <AddToCart product={fields} />}
@@ -111,16 +120,24 @@ const Wrapper = styled.main`
 	}
 	.desc {
 		line-height: 2;
-		max-width: 45em;
+		width: 200px;
+	}
+	.date {
+		padding-left: 3.5rem;
+		padding-top: 0.25rem;
 	}
 	.info {
 		text-transform: capitalize;
-		width: 300px;
+		width: 500px;
 		display: grid;
 		grid-template-columns: 125px 1fr;
 		span {
 			font-weight: 700;
 		}
+	}
+	.icon {
+		margin-top: 0.25rem;
+		padding-left: 0.5rem;
 	}
 
 	@media (min-width: 992px) {
