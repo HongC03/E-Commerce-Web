@@ -16,11 +16,11 @@ const Sidebar = () => {
 			<aside
 				className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}
 			>
-				<div classname='sidebar-header'>
-					<Link To='/'>
-						<img src={logo} classname='logo' alt='footable' />
+				<div className='sidebar-header'>
+					<Link to='/'>
+						<img src={logo} className='logo' alt='footable' />
 					</Link>
-					<button classname='close-btn' type='button' onClick={closeSidebar}>
+					<button className='close-btn' type='button' onClick={closeSidebar}>
 						<FaTimes />
 					</button>
 				</div>
