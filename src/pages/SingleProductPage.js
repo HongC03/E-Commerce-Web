@@ -42,9 +42,9 @@ const SingleProductPage = () => {
 		if (isError) {
 			setTimeout(() => {
 				history.push('/');
-			}, 4000);
+			}, 5000);
 		}
-	},);
+	});
 
 	if (isLoading) {
 		return <Loading />;
