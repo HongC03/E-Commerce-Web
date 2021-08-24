@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
 import { single_product_url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
 import { VscCheck, VscClose } from "react-icons/vsc";
