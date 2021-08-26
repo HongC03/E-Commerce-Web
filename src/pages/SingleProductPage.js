@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { single_product_url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
-import { VscCheck, VscClose } from "react-icons/vsc";
+import { VscCheck, VscClose } from 'react-icons/vsc';
 import {
 	Loading,
 	Error,
@@ -17,7 +17,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SingleProductPage = () => {
-	const { id } = useParams();
+	const { id: id1 } = useParams();
 	const history = useHistory();
 	const [product, setProduct] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +25,7 @@ const SingleProductPage = () => {
 
 	const fetchSingleProduct = async () => {
 		try {
-			const { data } = await axios.get(`${single_product_url}${id}`);
+			const { data } = await axios.get(`${single_product_url}${id1}`);
 			setProduct(data);
 		} catch (error) {
 			setIsError(true);
@@ -35,24 +35,18 @@ const SingleProductPage = () => {
 
 	useEffect(() => {
 		fetchSingleProduct();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	useEffect(() => {
-		if (isError) {
-			setTimeout(() => {
-				history.push('/');
-			}, 5000);
-		}
-	});
 
 	if (isLoading) {
 		return <Loading />;
 	}
 	if (isError) {
+		setTimeout(() => {
+			history.push('/');
+		}, 5000);
 		return <Error />;
 	}
-
-	const { fields } = product;
 	const {
 		name,
 		price,
@@ -63,8 +57,10 @@ const SingleProductPage = () => {
 		department,
 		company,
 		images,
-		freeshipping
-} = fields
+		freeshipping,
+	} = product.fields;
+
+	const { id } = product;
 
 	return (
 		<Wrapper>
@@ -81,7 +77,7 @@ const SingleProductPage = () => {
 						<h5 className='price'> {formatPrice(price)}</h5>
 						<p className='info'>
 							<span className='desc'>Date First Available : </span>
-							<span className="date">{releaseDate}</span>
+							<span className='date'>{releaseDate}</span>
 						</p>
 						<p className='info'>
 							<span>Available : </span>
@@ -97,10 +93,12 @@ const SingleProductPage = () => {
 						</p>
 						<p className='info'>
 							<span>Freeshipping : </span>
-							<span className='icon'>{freeshipping ? <VscCheck /> : <VscClose />}</span>
+							<span className='icon'>
+								{freeshipping ? <VscCheck /> : <VscClose />}
+							</span>
 						</p>
 						<hr />
-						{stock > 0 && <AddToCart product={fields} />}
+						{stock > 0 && <AddToCart product={product.fields} id={id} />}
 					</section>
 				</div>
 			</div>
