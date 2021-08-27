@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { ShoePage } from '../components';
 import aboutImg from '../assets/nikeshoe3.jpeg';
-import { User } from '@auth0/auth0-react';
 
 const AboutPage = () => {
 	return (

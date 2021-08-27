@@ -1,24 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { services } from '../utils/constants';
-
 const Services = () => {
 	return (
 		<Wrapper>
 			<div className='section-center'>
-				<article className='header'>
-					<h3>
-						Custom Furniture <br />
-						Built only for you
-					</h3>
-					<p>rignegn</p>
-				</article>
-				<div className='service-center'>
+				<div className='services-center'>
 					{services.map((service) => {
-						const { id, icon, title, text } = service;
+						const { id, title, text } = service;
 						return (
-							<article key={id} className='service'>
-								<span className='icon'>{icon}</span>
+							<article className='service' key={id}>
 								<h4>{title}</h4>
 								<p>{text}</p>
 							</article>
@@ -31,13 +22,14 @@ const Services = () => {
 };
 
 const Wrapper = styled.section`
+	margin-bottom: 300px;
 	h3,
 	h4 {
 		color: var(--clr-primary-1);
 	}
 	padding: 5rem 0;
 
-	background: var(--clr-primary-10);
+	background: var(--clr-grey-10);
 
 	.header h3 {
 		margin-bottom: 2rem;
@@ -53,7 +45,7 @@ const Wrapper = styled.section`
 		gap: 2.5rem;
 	}
 	.service {
-		background: var(--clr-primary-7);
+		background: var(--clr-primary-10);
 		text-align: center;
 		padding: 2.5rem 2rem;
 		border-radius: var(--radius);
@@ -93,4 +85,5 @@ const Wrapper = styled.section`
 		}
 	}
 `;
+
 export default Services;
