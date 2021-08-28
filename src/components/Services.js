@@ -22,7 +22,7 @@ const Services = () => {
 };
 
 const Wrapper = styled.section`
-	margin-bottom: 300px;
+	margin-bottom: 200px;
 	h3,
 	h4 {
 		color: var(--clr-primary-1);

@@ -1,4 +1,5 @@
 import FeaturedProducts from './FeaturedProducts';
+import Disclaimer from './Disclaimer';
 import Navbar from './Navbar';
 import CartButtons from './CartButtons';
 import Footer from './Footer';
@@ -18,6 +19,7 @@ import ShoePage from './ShoePage';
 import StripeCheckout from './StripeCheckout';
 export {
 	FeaturedProducts,
+	Disclaimer,
 	Navbar,
 	CartButtons,
 	Footer,

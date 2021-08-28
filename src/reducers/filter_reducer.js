@@ -93,7 +93,7 @@ const filter_reducer = (state, action) => {
 		}
 		if (department !== 'all') {
 			tempProducts = tempProducts.filter((product) => {
-				return (product.department === department);
+				return product.department === department;
 			});
 		}
 		// color
