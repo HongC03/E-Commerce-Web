@@ -49,8 +49,7 @@ const NavContainer = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: sticky;
-	top: 0;
+	position: sticky;top: 0;
 	z-index: 100;
 
 	.nav-center {
