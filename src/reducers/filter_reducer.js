@@ -68,7 +68,8 @@ const filter_reducer = (state, action) => {
 	}
 	if (action.type === FILTER_PRODUCTS) {
 		const { all_products } = state;
-		const { text, category, company, color, price, freeshipping } = state.filters;
+		const { text, category, company, color, department, price, freeshipping } =
+			state.filters;
 
 		let tempProducts = [...all_products];
 		// filtering functionality
@@ -88,6 +89,11 @@ const filter_reducer = (state, action) => {
 		if (company !== 'all') {
 			tempProducts = tempProducts.filter((product) => {
 				return product.company === company;
+			});
+		}
+		if (department !== 'all') {
+			tempProducts = tempProducts.filter((product) => {
+				return (product.department === department);
 			});
 		}
 		// color
@@ -117,6 +123,7 @@ const filter_reducer = (state, action) => {
 				company: 'all',
 				category: 'all',
 				color: 'all',
+				department: 'all',
 				price: state.filters.max_price,
 				freeshipping: false,
 			},

@@ -11,6 +11,7 @@ const Filters = () => {
 			category,
 			company,
 			color,
+			department,
 			min_price,
 			price,
 			max_price,
@@ -23,6 +24,7 @@ const Filters = () => {
 
 	const categories = getUniqueValues(all_products, 'category');
 	const companies = getUniqueValues(all_products, 'company');
+	const departments = getUniqueValues(all_products, 'department');
 	const colors = getUniqueValues(all_products, 'colors');
 
 	return (
@@ -70,7 +72,7 @@ const Filters = () => {
 							name='company'
 							value={company}
 							onChange={updateFilters}
-							className='company'
+							className='select-form'
 						>
 							{companies.map((c, index) => {
 								return (
@@ -82,6 +84,25 @@ const Filters = () => {
 						</select>
 					</div>
 					{/* companies end */}
+					{/* department start */}
+					<div className='form-control'>
+						<h5>department</h5>
+						<select
+							name='department'
+							value={department}
+							onChange={updateFilters}
+							className='select-form'
+						>
+							{departments.map((d, index) => {
+								return (
+									<option key={index} value={d}>
+										{d}
+									</option>
+								);
+							})}
+						</select>
+					</div>
+					{/* department end */}
 					{/* colors start */}
 					<div className='form-control'>
 						<h5>colors</h5>
@@ -148,13 +169,9 @@ const Filters = () => {
 					{/* freeshipping end */}
 				</form>
 				{/* clear button start */}
-				<button
-					type='button'
-					className='clear-btn'
-					onClick={clearFilters}
-				>
-          clear filters
-        </button>
+				<button type='button' className='clear-btn' onClick={clearFilters}>
+					clear filters
+				</button>
 				{/* clear button end */}
 			</div>
 		</Wrapper>
@@ -194,7 +211,7 @@ const Wrapper = styled.section`
 	.active {
 		border-color: var(--clr-grey-5);
 	}
-	.company {
+	.select-form {
 		background: var(--clr-grey-10);
 		border-radius: var(--radius);
 		border-color: transparent;
