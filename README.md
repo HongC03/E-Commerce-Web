@@ -7,18 +7,18 @@ Footable uses React for building user interfaces.
 #### Features
 
 - Products page with several filters (grid/list view, company, price, etc.)
-- Shopping cart page which counts the total amount automatically (User can also change the
-  the amount of the product)
+- Shopping cart page which counts the total amount automatically<br>
+  (User can also change the the amount of the product)
 - User is required to login in order to process to the checkout page
 
 #### Authentication
 
-Footable uses Auth0 React SDK for Single Page Apps for basic authentication. 
+Footable uses Auth0 React SDK for Single Page Apps for basic authentication.<br>
 The users can also login with their Google account.
 
-** Testing account for authentication **
+**Testing account for authentication**
 
-Email : testing1234@gmail.com
+Email : testing1234@gmail.com <br>
 Password: QWER-1234
 
 #### Payment
