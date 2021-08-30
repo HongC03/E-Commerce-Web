@@ -7,18 +7,18 @@ Footable uses React for building user interfaces.
 #### Features
 
 - Products page with several filters (grid/list view, company, price, etc.)
-- Shopping cart page which counts the total amount automatically<br>
-  (User can also change the the amount of the product)
+- Shopping cart page which counts the total amount automatically(User can also change the
+  amount of the product)
 - User is required to login in order to process to the checkout page
 
 #### Authentication
 
-Footable uses Auth0 React SDK for Single Page Apps for basic authentication.<br>
-The users can also login with their Google account.
+Footable uses Auth0 React SDK for Single Page Apps for basic authentication. The users can also login with their Google account.
 
 **Testing account for authentication**
 
 Email : testing1234@gmail.com <br>
+
 Password: QWER-1234
 
 #### Payment
@@ -28,8 +28,6 @@ Footable uses Stripe for payment process.
 #### Site Depolys
 
 Footable uses Netlify to publish the site.
-
-
 
 ```
 
@@ -41,4 +39,3 @@ Footable uses Netlify to publish the site.
 "netlify-cli": "^3.39.4",
 
 ```
-
