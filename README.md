@@ -24,6 +24,8 @@ Footable uses Stripe for payment process.
 
 Footable uses Netlify to publish the site.
 
+
+
 ```
 
 "react": "^17.0.2",
