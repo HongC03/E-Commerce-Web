@@ -16,6 +16,11 @@ Footable uses React for building user interfaces.
 Footable uses Auth0 React SDK for Single Page Apps for basic authentication. 
 The users can also login with their Google account.
 
+** Testing account for authentication **
+
+Email : testing1234@gmail.com
+Password: QWER-1234
+
 #### Payment
 
 Footable uses Stripe for payment process.
